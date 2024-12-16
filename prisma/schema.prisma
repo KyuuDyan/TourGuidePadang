@@ -1,0 +1,32 @@
+// Prisma schema for Tourism Database
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+// Model: TempatWisata
+model TempatWisata {
+  id             Int       @id @default(autoincrement())
+  namaTempat     String
+  deskripsi      String?   @db.Text
+  sejarah        String?   @db.Text
+  lokasi         String
+  koordinat      String?
+  kategori       String?
+  hargaTiket     Float?
+  jamOperasional String?
+  kontak         String?
+  image          String?
+}
+
+// Model: Event
+model Event {
+  id             Int       @id @default(autoincrement())
+  namaEvent      String
+  deskripsi      String?   @db.Text
+  image          String?
+}
